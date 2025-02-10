@@ -18,7 +18,7 @@ export default function Home() {
 const  handleLogout = async () =>  { 
 
   localStorage.clear();
-  const respone = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/logout` ,{
+  const respone = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout` ,{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const  handleLogout = async () =>  {
 
         const decoded: User = jwtDecode(token);
         console.log(decoded.userId)
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/`+ decoded.userId);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`+ decoded.userId);
         console.log(response)
 
         const data = await response.json();

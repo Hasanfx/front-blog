@@ -20,7 +20,7 @@ export default function CreateBlog() {
     setLoading(true);
     try {
     const token = localStorage.getItem('token');
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/posts`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' ,
           'Authorization': `Bearer ${token}`, 

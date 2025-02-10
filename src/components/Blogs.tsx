@@ -31,7 +31,7 @@ export default function Blogs() {
         await Promise.all(
           authorIds.map(async (id) => {
             try {
-              const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${id}`);
+              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${id}`);
               const user: User = await res.json();
               usersMap[id] = user.name;
             } catch (err) {

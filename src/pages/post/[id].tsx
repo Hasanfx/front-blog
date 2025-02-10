@@ -32,7 +32,7 @@ const BlogDetail = () => {
   // Fetch user data
   const getUser = async (id: number) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user');
       }
@@ -60,7 +60,7 @@ const BlogDetail = () => {
 
     // Fetch the blog post by ID
     const fetchBlog = async (id: number): Promise<BlogPost> => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/posts/${id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`);
       if (!response.ok) throw new Error(`Failed to fetch blog with id: ${id}`);
       return response.json();
     };
@@ -99,7 +99,7 @@ const BlogDetail = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/posts/${blogPost.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${blogPost.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
